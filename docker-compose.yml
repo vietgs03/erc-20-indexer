@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  indexer:
+    build: .
+    container_name: erc20-indexer
+    restart: unless-stopped
+    environment:
+      - RPC=https://eth.llamarpc.com
+      - TOKEN_ADDRESS=0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48
+      - DB_HOST=167.253.158.16
+      - DB_PORT=5432
+      - DB_USER=admin
+      - DB_PASSWORD=secret
+      - DB_NAME=Crypto
+      - DB_SSL_MODE=disable
+      - DB_MAX_CONNS=10
+      - DB_TIMEOUT=5s
